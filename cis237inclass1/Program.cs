@@ -10,6 +10,8 @@ namespace cis237inclass1
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Here is some text");
+            Console.WriteLine("Here is some more text");
         }
     }
 }
