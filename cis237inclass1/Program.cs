@@ -52,6 +52,48 @@ namespace cis237inclass1
                     Console.WriteLine(employee.ToString());
                 }
             }
+
+            // We are creating a new UserInterface class, and it's okay
+            // that the UserInterface class does not have a defined
+            // constructor. It will have a default one provided to us that
+            // we can take advantage of by just not passing in any parameters.
+            UserInterface ui = new UserInterface();
+
+            // Call the GetUserInput method of the UI class. It will return
+            // a valid integer that represents the choice they want to do. 
+            int choice = ui.GetUserInput();
+
+            // While the choice is not the exit choice (which in this class is 2)
+            while (choice != 2)
+            {
+                // If the choice is 1, which in this case has to be, but if there
+                // were more menus options it might not be so obvious.
+                if (choice == 1)
+                {
+                    // Create an empty string to concat to.
+                    string allOutPut = "";
+
+                    //For each employee in the employees array.
+                    foreach(Employee employee in employees)
+                    {
+                        // So long as the spot in the array is not null
+                        if (employee != null)
+                        {
+                            // Concat the employee changed to a string plus a new line
+                            // to the allOutput string.
+                            allOutPut += employee.ToString() + Environment.NewLine;
+                        }
+                    }
+                    // Now that the large string containing what I would like to output
+                    // is created, I can output it to the screen using the
+                    // PrintAllOutput method of the UI class.
+                    ui.PrintAllOutput(allOutPut);
+                }
+
+                // Now that the "Work" that we wanted to do is done,
+                // we need to reprompt the user for some input
+                choice = ui.GetUserInput();
+            }
         }
 
         //this method takes in an integer, which is passed by value
